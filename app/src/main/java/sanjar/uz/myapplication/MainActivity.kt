@@ -4,13 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
@@ -22,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import sanjar.uz.myapplication.ui.theme.MyApplicationTheme
-import sanjar.uz.myapplication.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,13 +29,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        CustomItem(weight = 3f)
-                        CustomItem(weight = 1f, color = MaterialTheme.colorScheme.error)
-                    }
+                    Greeting()
                 }
             }
         }
@@ -48,14 +37,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun RowScope.CustomItem(weight: Float, color: Color = MaterialTheme.colorScheme.primary) {
-    Surface(
-        modifier = Modifier
-            .width(60.dp)
-            .height(60.dp)
-            .weight(weight), color = color
-    ) {
+fun Greeting() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
+        Box(
+            modifier = Modifier
+                .background(Color.Blue)
 
+        ) {
+            Box(
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(50.dp)
+                    .background(Color.Green)
+            ) {
+
+            }
+            Text(text = "I love Android!!!", fontSize = 40.sp)
+        }
     }
 }
 
@@ -63,14 +61,6 @@ fun RowScope.CustomItem(weight: Float, color: Color = MaterialTheme.colorScheme.
 @Composable
 fun GreetingPreview() {
     MyApplicationTheme {
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            CustomItem(weight = 3f)
-            CustomItem(weight = 1f, color = MaterialTheme.colorScheme.error)
-        }
-
+        Greeting()
     }
 }
