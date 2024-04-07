@@ -7,10 +7,12 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 
 @Composable
 fun Coil() {
@@ -21,13 +23,16 @@ fun Coil() {
     ) {
         val painter =
             rememberAsyncImagePainter(
-                model = "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019" +
-                        "/06/digital_camera_photo-1080x675.jpg",
-
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(
+                        "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019" +
+                                "/06/digital_camera_photo-1080x675.jpg"
+                    )
+                    .crossfade(300)
+                    .build(),
                 error = painterResource(id = R.drawable.google_icon),
-
                 )
-        Image(painter = painter, contentDescription = "Logo Image")
+        Image(painter = painter, contentDescription = "Photo taker")
         if (painter.state is AsyncImagePainter.State.Loading) {
             CircularProgressIndicator()
         }
