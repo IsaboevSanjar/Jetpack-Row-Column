@@ -1,7 +1,6 @@
 package sanjar.uz.myapplication
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -26,15 +25,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .padding(10.dp)
                 ) {
+
                     Column(
                         modifier = Modifier.fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        GoogleButton(
-                            textGoogle = "Sign Up With Google",
-                            loadingText = "Creating Account...",
-                            onClick = { Log.d("googleButton", "Clicked...") })
+                        Coil()
                     }
                 }
             }
