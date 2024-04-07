@@ -10,13 +10,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import sanjar.uz.myapplication.lazyColumn.LazyColumnPerson
 import sanjar.uz.myapplication.ui.theme.MyApplicationTheme
-import sanjar.uz.myapplication.ui.theme.blue1
-import sanjar.uz.myapplication.ui.theme.blue2
-import sanjar.uz.myapplication.ui.theme.blue3
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,19 +32,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        GradientButton(
-                            text = "Click",
-                            textColor = Color.White,
-                            gradient = Brush.horizontalGradient(
-                                colors = listOf(
-                                    blue1,
-                                    blue2,
-                                    blue3,
-                                )
-                            )
-                        ) {
-
-                        }
+                        LazyColumnPerson()
                     }
                 }
             }
