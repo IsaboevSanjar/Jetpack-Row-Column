@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                     modifier = Modifier.padding(10.dp)
                 ) {
-                    TextFields()
+                    GoogleButton()
                 }
             }
         }
