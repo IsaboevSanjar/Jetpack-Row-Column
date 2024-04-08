@@ -20,7 +20,7 @@ fun DetailsScreen() {
     ) {
         Text(
             text = "Details",
-            color = MaterialTheme.colorScheme.primary,
+            color = MaterialTheme.colorScheme.error,
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
