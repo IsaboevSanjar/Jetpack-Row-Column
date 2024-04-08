@@ -1,4 +1,4 @@
-package sanjar.uz.myapplication
+package sanjar.uz.myapplication.navigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
